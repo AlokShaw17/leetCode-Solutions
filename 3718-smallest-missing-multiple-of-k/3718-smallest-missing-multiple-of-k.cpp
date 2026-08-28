@@ -1,17 +1,14 @@
 class Solution {
 public:
     int missingMultiple(vector<int>& nums, int k) {
-        set<int> s;
-        int i=1,ch=1;
-        for(auto a:nums)
-        {
-            s.insert(a);
-        }
-        while(ch==1)
+        unordered_set<int> s(nums.begin(),nums.end());
+        int i=1;
+        while (true)
         {
             if(s.find(k*i)==s.end())
             {
                 return k*i;
+                break;
             }
             else
             {
